@@ -9,7 +9,6 @@ services:
       - mongo_data:/data/db
 
   backend:
-    build: ./backend
     container_name: pokemon-backend
     ports:
       - "5001:5000"
@@ -17,8 +16,7 @@ services:
       - MONGODB_URI=mongodb://mongo:27017/pokemon_db
     depends_on:
       - mongo
-    
-    build: 
+    build:
       context: backend
       dockerfile: Dockerfile
     command: npm run dev
