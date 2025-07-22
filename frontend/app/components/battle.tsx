@@ -30,31 +30,29 @@ export default function Battle({
       <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
         <Dialog.Content>
           <Dialog.Title>Battle Log</Dialog.Title>
-          <Dialog.Description>
-            <div>
-              {logs.map((log, index) => {
-                const isRound = log.match(/^(Round \d+:)(.*)$/);
-                return (
-                  <div key={index} className="mb-1">
-                    {isRound ? (
-                      <>
-                        <div className="text-gray-800  font-bold">
-                          {isRound[1]}
-                        </div>
-                        <div>{isRound[2]}</div>
-                      </>
-                    ) : (
-                      <div>
-                        {highLight(log) || (
-                          <div className="text-gray-700">{log}</div>
-                        )}
+          <div className="mt-4 mb-4">
+            {logs.map((log, index) => {
+              const isRound = log.match(/^(Round \d+:)(.*)$/);
+              return (
+                <div key={index} className="mb-1">
+                  {isRound ? (
+                    <>
+                      <div className="text-gray-800  font-bold">
+                        {isRound[1]}
                       </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </Dialog.Description>
+                      <div>{isRound[2]}</div>
+                    </>
+                  ) : (
+                    <div>
+                      {highLight(log) || (
+                        <div className="text-gray-700">{log}</div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
           <Flex justify="end">
             <Button onClick={() => setIsOpen(false)} className="mt-4 ">
               Close
