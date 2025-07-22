@@ -1,8 +1,9 @@
 import express from "express";
-import { connectDB, initial } from "./db/connect-DB";
+import { connectDB, initial } from "./db/connect-db";
 import { battle } from "./routes/battle-api";
 import { PokemonModel } from "./models/pokemon";
 import cors from "cors";
+import { validateBattleTeams } from "../src/validation/validation";
 
 const app = express();
 app.use(express.json());
@@ -25,6 +26,7 @@ app.post("/battle", async (req, res) => {
       .json({ error: "Both team1 and team2 must be arrays." });
   }
   try {
+    validateBattleTeams(team1, team2);
     const team1Pokemons = await PokemonModel.find({
       name: { $in: team1 },
     }).lean();

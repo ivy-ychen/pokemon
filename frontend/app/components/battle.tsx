@@ -20,6 +20,7 @@ export default function Battle({
       return <span className="text-green-500 font-bold">{text}</span>;
     }
   };
+
   return (
     <>
       <div className="flex  justify-center my-6">

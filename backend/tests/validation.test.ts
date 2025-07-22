@@ -1,4 +1,4 @@
-import { validateBattleTeams } from "./validation";
+import { validateBattleTeams } from "../src/validation/validation";
 
 describe("validateBattleTeams", () => {
   it("should throw an error if team1 is empty", () => {
