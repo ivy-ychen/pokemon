@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, Box, Button, Card, Flex, Text } from "@radix-ui/themes";
 import { Pokemon } from "../type/global-type";
 
@@ -12,6 +13,7 @@ export default function PokemonCard({
 }) {
   return (
     //info card for each pokemon
+    //display pokemon image, name, height, weight, type, egg, spawn chancexw
     <Card
       size="5"
       className={`w-full relative transition-all

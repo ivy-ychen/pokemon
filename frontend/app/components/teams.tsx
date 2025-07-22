@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, Box, Button, Flex, Text } from "@radix-ui/themes";
 import { Pokemon } from "../type/global-type";
 import { Cross2Icon } from "@radix-ui/react-icons";

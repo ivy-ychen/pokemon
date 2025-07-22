@@ -30,7 +30,7 @@ describe("validateBattleTeams", () => {
         ["Pikachu", "Bulbasaur", "Pikachu"],
         ["Charmander", "Squirtle", "Jigglypuff"]
       )
-    ).toThrow("Invalid: Duplicate Pokémon found in the team");
+    ).toThrow("Invalid: Duplicate Pokemon found in the team");
   });
   it("should throw an error if team2 has duplicate Pokemons", () => {
     expect(() =>
@@ -38,7 +38,7 @@ describe("validateBattleTeams", () => {
         ["Pikachu", "Bulbasaur", "Charmander"],
         ["Squirtle", "Jigglypuff", "Squirtle"]
       )
-    ).toThrow("Invalid: Duplicate Pokémon found in the team");
+    ).toThrow("Invalid: Duplicate Pokemon found in the team");
   });
   it("should throw an error if there are duplicate Pokemons between teams", () => {
     expect(() =>
@@ -46,7 +46,7 @@ describe("validateBattleTeams", () => {
         ["Pikachu", "Bulbasaur", "Charmander"],
         ["Pikachu", "Squirtle", "Jigglypuff"]
       )
-    ).toThrow("Invalid: Duplicate Pokémon found between teams: Pikachu");
+    ).toThrow("Invalid: Duplicate Pokemon found between teams: Pikachu");
   });
   it("should not throw an error for valid teams", () => {
     expect(() =>

@@ -88,9 +88,18 @@ export const battle = (team1: Pokemon[], team2: Pokemon[]): string[] => {
 
     const damage = calculatePokemonDamage(attacker, defender);
     defender.hp -= damage;
+
     logs.push(
       `Round ${round}: Team ${attackingTeam} ${attacker.name} attacks ${defender.name} for ${damage} damage.`
     );
+
+    // effective if attacker's type is in defender's weaknesses
+    const effective = attacker.type.some((type) =>
+      defender.weaknesses.includes(type)
+    );
+    if (effective) {
+      logs.push("super effective!");
+    }
 
     if (defender.hp <= 0) {
       logs.push(`${defender.name} has fainted`);

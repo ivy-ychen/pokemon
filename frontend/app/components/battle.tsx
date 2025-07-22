@@ -1,4 +1,5 @@
-import { Button, Dialog, Flex, Text } from "@radix-ui/themes";
+"use client";
+import { Button, Dialog, Flex } from "@radix-ui/themes";
 
 export default function Battle({
   battle,
