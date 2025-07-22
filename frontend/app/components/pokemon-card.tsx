@@ -41,6 +41,7 @@ export default function PokemonCard({
         <Text size="2" color="gray" align="center">
           Weight: {pokemon.weight}
         </Text>
+
         <Flex gap="2" wrap="wrap" justify="center" className="mt-2">
           {pokemon.type.map((type) => (
             <Box

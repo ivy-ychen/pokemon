@@ -17,10 +17,14 @@ services:
       - MONGODB_URI=mongodb://mongo:27017/pokemon_db
     depends_on:
       - mongo
+    
+    build: 
+      context: backend
+      dockerfile: Dockerfile
+    command: npm run dev
     volumes:
       - ./backend:/app
-    working_dir: /app
-    command: npm start
+      - /app/node_modules
 
   frontend:
     container_name: pokemon-frontend
