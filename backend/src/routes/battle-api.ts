@@ -24,14 +24,23 @@ export const calculatePokemonHP = (height: string, weight: string): number => {
   return hp;
 };
 
-const calculateWM = (types: String[], weaknesses: String[]): number => {
+const calculateWM = (
+  attackerTypes: String[],
+  attackerWeaknesses: String[],
+  defenderTypes: String[],
+  defenderWeaknesses: String[]
+): number => {
   let multiplier = 1;
 
-  types.forEach((type) => {
-    if (weaknesses.includes(type)) {
+  attackerTypes.forEach((type) => {
+    if (defenderWeaknesses.includes(type)) {
       multiplier *= 1.5;
     }
   });
+
+  if (attackerWeaknesses.some((weakness) => defenderTypes.includes(weakness))) {
+    multiplier *= 0.5;
+  }
 
   return multiplier;
 };
@@ -55,7 +64,12 @@ export const calculatePokemonDamage = (
   const attack = 50;
   const defense = 30;
 
-  const wm = calculateWM(attacker.type, defender.weaknesses);
+  const wm = calculateWM(
+    attacker.type,
+    attacker.weaknesses,
+    defender.type,
+    defender.weaknesses
+  );
   const sf = calculateSF(attacker.height, attacker.weight);
 
   const levelFactor = Math.floor((level * 2) / 5 + 2);
@@ -99,6 +113,14 @@ export const battle = (team1: Pokemon[], team2: Pokemon[]): string[] => {
     );
     if (effective) {
       logs.push("super effective!");
+    }
+
+    const ineffective = attacker.weaknesses.some((weakness) =>
+      defender.type.includes(weakness)
+    );
+
+    if (ineffective) {
+      logs.push("not very effective...");
     }
 
     if (defender.hp <= 0) {

@@ -26,7 +26,7 @@ export default function Home() {
       setPokemons(data);
     } catch (error) {
       setCalloutMessage(
-        "Failed to fetch Pokémon data. Please try again later."
+        "Failed to fetch Pokemon data. Please try again later."
       );
       console.error(error);
     }
@@ -59,7 +59,7 @@ export default function Home() {
   async function handleBattle() {
     if (team1.length !== 3 || team2.length !== 3) {
       setCalloutMessage(
-        "Both teams must have exactly 3 Pokémon to start a battle."
+        "Both teams must have exactly 3 Pokemon to start a battle."
       );
       return;
     }
@@ -109,7 +109,7 @@ export default function Home() {
   return (
     <Container size="4" className="py-5">
       <Text size="6" weight="bold" align="center" mb="6">
-        Pokémon Gallery
+        Pokemon Gallery
       </Text>
       {calloutMessage && (
         <Callout.Root color="red" className="my-4">
