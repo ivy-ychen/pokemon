@@ -34,6 +34,7 @@ export default function Teams({
                     pokemon ? "border-red-500" : "border-red-300  opacity-50"
                   }`}
                 />
+
                 {pokemon && (
                   <Button
                     size="1"

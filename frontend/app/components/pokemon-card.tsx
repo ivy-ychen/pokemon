@@ -11,6 +11,7 @@ export default function PokemonCard({
   side?: "left" | "right";
 }) {
   return (
+    //info card for each pokemon
     <Card
       size="5"
       className={`w-full relative transition-all
