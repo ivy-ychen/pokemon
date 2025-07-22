@@ -25,10 +25,10 @@ export default function Home() {
       const data = await response.json();
       setPokemons(data);
     } catch (error) {
-      console.error(error);
       setCalloutMessage(
         "Failed to fetch Pokémon data. Please try again later."
       );
+      console.error(error);
     }
   }
   useEffect(() => {
