@@ -9,7 +9,7 @@ services:
       - mongo_data:/data/db
 
   backend:
-    build: .
+    build: ./backend
     container_name: pokemon-backend
     ports:
       - "5001:5000"
@@ -18,7 +18,20 @@ services:
     depends_on:
       - mongo
     volumes:
-      - .:/app
+      - ./backend:/app
+    working_dir: /app
+    command: npm start
+
+  frontend:
+    build: ./frontend
+    container_name: pokemon-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - ./frontend:/node_modules:/app/node_modules
     working_dir: /app
     command: npm start
 

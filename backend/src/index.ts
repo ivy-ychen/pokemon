@@ -6,6 +6,15 @@ import { PokemonModel } from "./models/pokemon";
 const app = express();
 app.use(express.json());
 
+app.get("/pokemon", async (req, res) => {
+  try {
+    const pokemons = await PokemonModel.find({}).lean();
+    res.json(pokemons);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch pokemon data." });
+  }
+});
+
 app.post("/battle", async (req, res) => {
   const { team1, team2 } = req.body;
   if (!Array.isArray(team1) || !Array.isArray(team2)) {
