@@ -2,9 +2,11 @@ import express from "express";
 import { connectDB, initial } from "./db/connect-DB";
 import { battle } from "./routes/battle-api";
 import { PokemonModel } from "./models/pokemon";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get("/pokemon", async (req, res) => {
   try {

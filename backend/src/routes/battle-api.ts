@@ -12,7 +12,7 @@ export const calculatePokemonHP = (height: string, weight: string): number => {
 
   if (w > 100) hp += 20;
   if (h > 3) hp += 20;
-
+  //size factor SML
   if (h < 1 && w < 20) {
     hp = Math.max(20, Math.min(hp, 60));
   } else if (h >= 1 && h < 2 && w >= 20 && w < 100) {
@@ -89,18 +89,18 @@ export const battle = (team1: Pokemon[], team2: Pokemon[]): string[] => {
     const damage = calculatePokemonDamage(attacker, defender);
     defender.hp -= damage;
     logs.push(
-      `Round ${round}: [Team ${attackingTeam}] ${attacker.name} attacks ${defender.name} for ${damage} damage.`
+      `Round ${round}: Team ${attackingTeam} ${attacker.name} attacks ${defender.name} for ${damage} damage.`
     );
 
     if (defender.hp <= 0) {
-      logs.push(`${defender.name} has fainted!`);
+      logs.push(`${defender.name} has fainted`);
       if (attackingTeam == 1) {
         battleTeam2.shift();
       } else {
         battleTeam1.shift();
       }
     } else {
-      logs.push(`${defender.name} has ${defender.hp} HP left.`);
+      logs.push(`${defender.name} has ${defender.hp} HP left`);
     }
 
     round++;
