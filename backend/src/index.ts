@@ -38,7 +38,9 @@ app.post("/battle", async (req, res) => {
     const logs = battle(team1Pokemons, team2Pokemons);
     res.json({ logs });
   } catch (error) {
-    res.status(500).json({ error: "Battle simulation failed." });
+    return res.status(400).json({
+      error: error instanceof Error ? error.message : error,
+    });
   }
 });
 
