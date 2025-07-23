@@ -76,14 +76,12 @@ npm test
 
 ### 1. Beautify UI
 
-### 2. Calculate the attack value
-
-### 3. Random Events in Battle
+### 2. Random Events in Battle
 
 - Introduce status effects like sleep, poison, paralysis, and confusion
 - Add probability-based events (e.g. missed attacks, flinching, critical hits)
 
-### 4.Battlefield Effects
+### 3.Battlefield Effects
 
 - Implement terrain types (e.g. water, cave, grass, volcanic)
 - Certain terrains give buffs or debuffs to specific Pokémon types (e.g. Water types gain HP in rain, Fire types lose attack in wet terrain)
